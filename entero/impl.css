@@ -1,0 +1,24 @@
+.form-item input.form-text{
+	float:left !important;
+	width:331px !important;
+	height:26px !important;
+	overflow:hidden !important;
+	padding:0 1px !important;
+	background:url(images/sprite.png) no-repeat -485px -807px !important;
+}
+.note-form {
+    color: #333333 !important;
+    display: block !important;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    margin: 0 0 14px -4px !important;
+    position: relative !important;
+}
+.webform-client-form .form-checkboxes {
+	margin:25px 0 0;
+}
+.webform-client-form .form-checkboxes .form-item,
+.webform-client-form .form-radios .form-item {
+	margin:0 !important;
+	padding: 0 0 8px 14px !important;
+}

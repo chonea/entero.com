@@ -1,0 +1,28 @@
+name = entero
+version = 1.0
+core = 7.x
+engine = phptemplate
+stylesheets[all][] = style.css
+stylesheets[all][] = all.css
+stylesheets[all][] = impl.css
+stylesheets[print][] = print.css
+#scripts[] = js/jquery-1.7.1.min.js
+scripts[] = js/jquery-main.js
+
+regions[header] = Header
+regions[footer] = Footer
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+
+regions[navigation] = Navigation
+regions[carousel] = Carousel
+regions[frontpagepost] = FrontPagePost
+regions[front3blocks] = Front3Blocks
+regions[front4blocks] = Front4Blocks
+regions[innerimage] = InnerImage
+regions[blogpagecontent] = Blog Page Content
+regions[contactform] = Contact Form
