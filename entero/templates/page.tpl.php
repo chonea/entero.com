@@ -76,7 +76,7 @@
                     <?php endif; ?>
                 </div>
                 <div id="sidebar">
-                    <?php
+                    <?php /*
                         if( (isset($node->type) and $node->type == 'page') or arg(0) == 'taxonomy'):
                             $left_menu = menu_tree_all_data('main-menu');
                             $parent_title = '';
@@ -118,6 +118,7 @@
                                 print $parent_title;
                             endif;
                         endif;
+												*/
                         global $flag;
                         $flag = 2;
                         print render($page['sidebar_first']);
@@ -151,7 +152,7 @@
                 $flag = 1;
                 print render($page['footer']);
             ?>
-            <p>Copyright 2012 Entero Corporation</p>
+            <p>Copyright <?php echo date('Y'); ?> Entero Corporation</p>
             <script type="text/javascript">
 /* <![CDATA[ */
 document.write (

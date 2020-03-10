@@ -8,6 +8,7 @@
  */
 function entero_breadcrumb($variables) {
     $breadcrumb = $variables['breadcrumb'];
+		$output = '';
     if (!empty($breadcrumb)) {
         foreach($breadcrumb as $item):
             $output .= '<li>'.html_entity_decode($item, ENT_QUOTES, 'UTF-8').'</li>';
@@ -114,6 +115,11 @@ function base_preprocess_page(&$vars) {
     $slogan_text = $vars['site_slogan'];
     $site_name_text = $vars['site_name'];
     $vars['site_name_and_slogan'] = $site_name_text . ' ' . $slogan_text;
+
+	// Added by Chad 10/22/2013 for ajax pages in colorbox node		
+  if ( isset($_GET['ajax']) && $_GET['ajax'] == 1 ) {
+        $vars['template_file'] = 'page-ajax';
+  }
 }
 
 /**

@@ -5,27 +5,32 @@ jQuery(function(){
 	initTabs();
 	initAccordion();
 	wrapInElement();
+	loadCustomPostProcess();
 });
 
 // page init
 jQuery(function(){
-	initSlideShow();
+	if (typeof initSlideShow !== 'undefined' && jQuery.isFunction(initSlideShow)) {
+		initSlideShow();
+	}
 });
 
 // slideshow init
-function initSlideShow() {
-	jQuery('div.carousel').fadeGallery({
-		slides: '.frame li',
-		currentNumber: 'span.cur-num',
-		totalNumber: 'span.all-num',
-		switchSimultaneously: true,
-		disableWhileAnimating: false,
-		generatePagination: '.switcher',
-		autoRotation: true,
-		autoHeight: true,
-		switchTime: 8000,
-		animSpeed: 600
-	});
+if (typeof fadeGallery !== 'undefined' && jQuery.isFunction(fadeGallery)) {
+	function initSlideShow() {
+		jQuery('div.carousel').fadeGallery({
+			slides: '.frame li',
+			currentNumber: 'span.cur-num',
+			totalNumber: 'span.all-num',
+			switchSimultaneously: true,
+			disableWhileAnimating: false,
+			generatePagination: '.switcher',
+			autoRotation: true,
+			autoHeight: true,
+			switchTime: 8000,
+			animSpeed: 600
+		});
+	}
 }
 
 // init wrap in element
@@ -930,3 +935,113 @@ animations:{slide:function(a,b){a=c.extend({easing:"swing",duration:300},a,b);if
 f[i]={value:j[1],unit:j[2]||"px"}});a.toShow.css({height:0,overflow:"hidden"}).show();a.toHide.filter(":hidden").each(a.complete).end().filter(":visible").animate(g,{step:function(j,i){if(i.prop=="height")h=i.end-i.start===0?0:(i.now-i.start)/(i.end-i.start);a.toShow[0].style[i.prop]=h*f[i.prop].value+f[i.prop].unit},duration:a.duration,easing:a.easing,complete:function(){a.autoHeight||a.toShow.css("height","");a.toShow.css({width:e,overflow:d});a.complete()}})}else a.toHide.animate({height:"hide",
 paddingTop:"hide",paddingBottom:"hide"},a);else a.toShow.animate({height:"show",paddingTop:"show",paddingBottom:"show"},a)},bounceslide:function(a){this.slide(a,{easing:a.down?"easeOutBounce":"swing",duration:a.down?1E3:200})}}})})(jQuery);
 ;
+
+function loadCustomPostProcess() {
+	(function($){
+		$(document).ready(function(){
+	
+		/* dirty hack for hiding the Entero Report Newsletter post */
+		$('.page-newsletter-archive-2012 #block-system-main .post:nth-of-type(3)').hide();
+	
+	
+			// move ShareThis block inside node header
+	//		$('.block-sharethis').hide();
+			$('.post').each(function() {
+				$(this).find('.meta-box').append($(this).parent().prev('.block-sharethis'));
+			});
+			$('.block-sharethis').show();
+			// add Google Analytics to ShareThis buttons
+			$('.st_linkedin').click(function() {
+				var thisURL = $(this).attr('st_url');
+	//			_gaq.push(['_trackEvent', 'ShareThis', 'LinkedIn', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'ShareThis',   // Required.
+					'eventAction': 'LinkedIn',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+			$('.st_twitter').click(function() {
+				var thisURL = $(this).attr('st_url');
+	//			_gaq.push(['_trackEvent', 'ShareThis', 'Twitter', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'ShareThis',   // Required.
+					'eventAction': 'Twitter',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+			$('.st_email').click(function() {
+				var thisURL = $(this).attr('st_url');
+	//			_gaq.push(['_trackEvent', 'ShareThis', 'Email', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'ShareThis',   // Required.
+					'eventAction': 'Email',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+			$('.st_sharethis').click(function() {
+				var thisURL = $(this).attr('st_url');
+	//			_gaq.push(['_trackEvent', 'ShareThis', 'ShareThis', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'ShareThis',   // Required.
+					'eventAction': 'ShareThis',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+
+			// add Google Analytics to Connect buttons
+			$('.a.linkedin').click(function() {
+				var thisURL = $(this).attr('href');
+	//			_gaq.push(['_trackEvent', 'Connect', 'LinkedIn', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'Connect',   // Required.
+					'eventAction': 'LinkedIn',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+			$('a.rss').click(function() {
+				var thisURL = $(this).attr('href');
+	//			_gaq.push(['_trackEvent', 'Connect', 'RSS', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'Connect',   // Required.
+					'eventAction': 'RSS',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+			$('a.vimeo').click(function() {
+				var thisURL = $(this).attr('href');
+	//			_gaq.push(['_trackEvent', 'Connect', 'Vimeo', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'Connect',   // Required.
+					'eventAction': 'Vimeo',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+			$('a.twitter').click(function() {
+				var thisURL = $(this).attr('href');
+	//			_gaq.push(['_trackEvent', 'Connect', 'Twitter', thisURL]);
+				ga('send', {
+					'hitType': 'event',          // Required.
+					'eventCategory': 'Connect',   // Required.
+					'eventAction': 'Twitter',      // Required.
+					'eventLabel': thisURL,
+	//				'eventValue': ''
+				});
+			});
+		});
+
+	})(jQuery);
+}

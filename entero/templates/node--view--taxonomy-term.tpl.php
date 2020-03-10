@@ -11,7 +11,13 @@
             <?php
                 endforeach;
             endif;
-        ?>
+        ?><?php /*
+				<div class="sharethis-wrapper">
+					<span class="st_linkedin" st_title="<?php print $title; ?>" st_url="http://www.entero.com<?php print urlencode($node_url); ?>"></span>
+					<span class="st_twitter" st_title="<?php print $title; ?>" st_url="http://www.entero.com<?php print urlencode($node_url); ?>"></span>
+					<span class="st_email" st_title="<?php print $title; ?>" st_url="http://www.entero.com<?php print urlencode($node_url); ?>"></span>
+					<span class="st_sharethis" st_title="<?php print $title; ?>" st_url="http://www.entero.com<?php print $node_url; ?>"></span>
+				</div> */ ?>
     </div>
     <div class="entry-content">
         <?php if(isset($node->field_image['und'][0]['uri'])): ?>

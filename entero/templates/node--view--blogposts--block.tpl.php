@@ -22,7 +22,7 @@
     <div class="post-link"><?php /*?>
         <?php if (render($content['links'])): ?>
             <a href="<?php print url('comment/reply/').$node->nid; ?>#comment-form">Add new comment</a><?php */?>
-        <?php endif; ?>
-        <a href="<?php print $node_url; ?>" class="more">Read more</a>
+        <?php /* endif; */ ?>
+        <a href="<?php print $node_url; ?>" class="more">Read more</a> xxx
     </div>
 </div>

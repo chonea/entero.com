@@ -45,9 +45,9 @@
                 $flag = 1;
                 print render($page['footer']);
             ?>
-            <p>Copyright 2012 Entero Corporation</p>
+            <p>Copyright <?php echo date('Y'); ?> Entero Corporation</p>
             <script type="text/javascript">
-
+<?php /* NO LONGER NEEDED - USING UNIVERSAL ANALYTICS
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-2900698-1']);
 _gaq.push(['_trackPageview']);
@@ -57,7 +57,7 @@ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async
 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
-
+*/ ?>
 </script>
             <script type="text/javascript">
 /* <![CDATA[ */
